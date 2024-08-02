@@ -1,0 +1,11 @@
+Field Title,Field Name,Data Type,Description
+Disease,disease,string,Pathogen or disease for which the estimate was produced
+Location,location,string,Geographic location for which the estimate was produced
+Location type,location_type,string,"Type of geographic location, e.g., sewershed, county"
+Estimate date,date_est,date,Reference date for the estimate
+Data date,date_dat,date,Date of most recent data incorporated into the estimate
+Archive date,date_arch,date,Date of model run that produced the estimate
+Model,model,string,The model and version used to produce the estimate
+Metric,metric,string,"metric estimated, Rt"
+Statistic,statistic,string,"The summary statistic reported in the value column, one of 'pointEstimate', 'bootstrapMedian', 'bootstrapSE', 'bootstrap.025', 'bootstrap.975', 'odds_Rt_dir', referring, respectively, to the point estimate from original data, median bootstrap estimate, standard error of bootstrap estimates, 2.5th percentile of bootstrap estimates, 97.5th percentile of bootstrap estimates, and estimated odds of an epidemic trend in the same direction as the point estimate (i.e., the proportion of bootstrap estimates with the same sign as the point estimate on the log scale divided by its complement)"
+Value,value,numeric,Value of the estimated statistic for the reference date
