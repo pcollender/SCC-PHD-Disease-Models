@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository hosts outputs from disease models run by the Santa Clara County Public Health Department's Science Branch. 
+This repository hosts outputs from disease models run by the Santa Clara County Public Health Department's Science Branch. Archived model output is available in the latest release, with naming conventions **{_Parent Folder_}.{_Disease_}.estimate_archive.csv**. Latest model outputs are available in the repo itself.
 
 ## Repository structure
 
