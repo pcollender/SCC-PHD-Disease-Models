@@ -15,3 +15,13 @@ The Santa Clara County Wastewater $R_t$ model is derived from the work of [Huism
 5. **Aggregation:** To convert $R_t$ estimates for each sewershed to the overall county estimate, point estimates from the original data, as well as bootstrapped estimates for each sewershed, are combined using a population-weighted average. Inference is then conducted by calculating bootstrap quantiles and odds of agreement of epidemic trajectory with the point estimate based on original data.
 
 **Input data:** Each date's estimate is based on the preceding 6 months of PMMoV-normalized target gene concentrations in wastewater solids provided by [Wastewater SCAN](https://data.wastewaterscan.org/). $R_t$ estimates are currently lagged 8 days prior to the most recent available wastewater data due to delays introduced by the shedding load distribution. Introducing a forecasting / nowcasting component to obtain more recent estimates may be a direction for future development.
+
+
+## Model change log:
+
+**8-21-2024    v1.0.1**
+- Model code now accepts full time series of wastewater data in order to derive scale factors for infection incidence and lower limits of detection. This helps to ensure that inferred incidence for lookback periods during which wastewater concentrations were always low are not unrealistically inflated, and may also result in more accurate truncation bounds for censored concentrations, assuming that LLOD is constant over time.
+
+- PMMoV scaling is now handled as an offset during smoothing, which helps resolve realistic truncation bounds for observations below the LLOD. In the prior method, noise added to the target concentration by PMMoV scaling often resulted in unrealistically low LLOD estimates which in turn inflated the variability of smooth fits and often resulted in censored observations being flagged as outliers.
+
+
