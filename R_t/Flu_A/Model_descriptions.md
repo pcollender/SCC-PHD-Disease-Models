@@ -18,7 +18,16 @@ The Santa Clara County Wastewater $R_t$ model is derived from the work of [Huism
 
 ## Model change log:
 
+**9-11-2024    v1.0.2**
+- By default, model no longer performs linear interpolation of wastewater concentrations prior to smoothing.
+- Incorporated an iterative smoothing model selection routine to contend with convergence failures for input series with sparse information. The order of models tried is  
+  - Adaptive spline smooth with day of week effects
+  - Thin plate spline smooth with day of week effects
+  - Adaptive spline smooth with weekday vs. weekend effects
+  - Thin plate spline smooth with weekday vs. weekend effects
+  - Adaptive spline smooth with no day of week effects
+  - Thin plate spline smooth with no day of week effects
+
 **8-21-2024    v1.0.1**
 - Model code now accepts full time series of wastewater data in order to derive scale factors for infection incidence and lower limits of detection. This helps to ensure that inferred incidence for lookback periods during which wastewater concentrations were always low are not unrealistically inflated, and may also result in more accurate truncation bounds for censored concentrations, assuming that LLOD is constant over time.
-
 - PMMoV scaling is now handled as an offset during smoothing, which helps resolve realistic truncation bounds for observations below the LLOD. In the prior method, noise added to the target concentration by PMMoV scaling often resulted in unrealistically low LLOD estimates which in turn inflated the variability of smooth fits and often resulted in censored observations being flagged as outliers.
