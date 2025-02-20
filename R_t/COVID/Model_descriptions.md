@@ -18,6 +18,9 @@ The Santa Clara County Wastewater $R_t$ model is derived from the work of [Huism
 
 
 ## Model change log:
+**1-22-2025    v1.1.1**
+- Implemented inference based on sieve bootstrap method, roughly following methods described by (Friedrich and Lin)[https://doi.org/10.1016/j.jeconom.2022.09.004]. 
+
 **1-14-2025    v1.1.0**
 - Several adjustments to smoothing method, including:
 	- Added routine to estimate basis degrees of freedom from historical wastewater data
